@@ -1,0 +1,26 @@
+{
+    "name": "vscode-bolt-language",
+    "displayName": "Bolt",
+    "description": "Firebase security rules language Bolt support for vscode",
+    "version": "0.0.1",
+    "publisher": "smkamranqadri",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "bolt",
+            "aliases": ["Bolt", "bolt"],
+            "extensions": [".bolt"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "bolt",
+            "scopeName": "source.bolt",
+            "path": "./syntaxes/bolt.tmLanguage"
+        }]
+    }
+}
