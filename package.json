@@ -3,7 +3,7 @@
     "displayName": "Bolt",
     "description": "Firebase security rules language Bolt support for vscode",
     "icon": "images/flash.png",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "smkamranqadri",
     "homepage": "https://github.com/smkamranqadri/vscode-bolt-language/blob/master/README.md",
     "repository": {
