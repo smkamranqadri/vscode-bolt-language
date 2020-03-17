@@ -3,20 +3,63 @@
 	"name": "Bolt",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#keyword"
 		},
 		{
-			"include": "#strings"
+			"include": "#string-double"
+		},
+		{
+			"include": "#string-single"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#path"
 		}
 	],
 	"repository": {
-		"keywords": {
+		
+		"keyword": {
 			"patterns": [{
 				"name": "keyword.control.bolt",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(return)\\b"
 			}]
 		},
-		"strings": {
+		"function": {
+			"name": "meta.function.bolt",
+			"match": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((\\S+)(,\\s*(\\S+))*)?(\\))",
+			"captures": {
+				"1": {
+					"name": "storage.type.function.bolt"
+				},
+				"2": {
+					"name": "entity.name.function.bolt"
+				},
+				"3": {
+					"name": "punctuation.definition.parameters.begin.bolt"
+				},
+				"4": {
+					"name": "variable.parameter.function.bolt"
+				},
+				"5": {
+					"name": "punctuation.definition.parameters.end.bolt"
+				}
+			}
+		},
+		"path": {
+			"name": "meta.path.bolt",
+			"match": "(path\\s)?\\s*(/\\S*)+\\s+",
+			"captures": {
+				"1": {
+					"name": "storage.type.path.bolt"
+				},
+				"2": {
+					"name": "string.quoted.single.bolt"
+				}
+			}
+		},
+		"string-double": {
 			"name": "string.quoted.double.bolt",
 			"begin": "\"",
 			"end": "\"",
@@ -26,6 +69,22 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"string-single": {
+			"name": "string.quoted.single.bolt",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.bolt",
+					"match": "\\\\."
+				}
+			]
+		},
+		"regexp": {
+			"name": "string.regexp.bolt",
+			"begin": "/",
+			"end": "/"
 		}
 	},
 	"scopeName": "source.bolt"
