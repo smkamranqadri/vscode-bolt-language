@@ -1,0 +1,25 @@
+{
+    "name": "vscode-bolt",
+    "displayName": "vscode-bolt",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "bolt",
+            "aliases": ["Bolt", "bolt"],
+            "extensions": [".bolt"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "bolt",
+            "scopeName": "source.bolt",
+            "path": "./syntaxes/bolt.tmLanguage.json"
+        }]
+    }
+}
