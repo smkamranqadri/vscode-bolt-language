@@ -36,7 +36,7 @@
 		},
 		"function-declaration": {
 			"name": "meta.function.bolt",
-			"begin": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((\\S+)(,\\s*(\\S+))*)?(\\))\\s*\\{",
+			"begin": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((?:[a-zA-Z_$]\\w*)(?:,\\s*(?:[a-zA-Z_$]\\w*))*)?(\\))\\s*{",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.type.function.bolt"
@@ -48,18 +48,16 @@
 					"name": "punctuation.definition.parameters.begin.bolt"
 				},
 				"4": {
-					"name": "variable.parameter.function.bolt"
+					"patterns": [{
+						"name": "variable.parameter.function.bolt",
+						"match": "\\b(?:[a-zA-Z_$]\\w*)"
+					}]
 				},
 				"5": {
 					"name": "punctuation.definition.parameters.end.bolt"
 				}
 			},
-			"end": "\\}",
-			"patterns": [{
-				"include": "#function-body"
-			}]
-		},
-		"function-body": {
+			"end": "}",
 			"patterns": [
 				{
 					"include": "#function-declaration"
@@ -71,7 +69,7 @@
 		},
 		"path-declaration": {
 			"name": "meta.path.bolt",
-			"begin": "(path\\s)?\\s*(/\\S*)+\\s*\\{",
+			"begin": "(path\\s)?\\s*(/\\S*)+\\s*{",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.type.path.bolt"
@@ -80,7 +78,7 @@
 					"name": "string.quoted.single.bolt"
 				}
 			},
-			"end": "\\}",
+			"end": "}",
 			"patterns": [
 				{
 					"include": "#path-declaration"
