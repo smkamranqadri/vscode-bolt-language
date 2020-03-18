@@ -14,26 +14,44 @@
 				},
 				{
 					"include": "#function-declaration"
+				},
+				{
+					"include": "#type-declaration"
 				}
 			]
 		},
 		"expr": {
 			"patterns": [
 				{
+					"include": "#function-call"
+				},
+				{
+					"include": "#regexp"
+				},
+				{
 					"include": "#string-double"
 				},
 				{
 					"include": "#string-single"
+				},
+				{
+					"include": "#return"
+				},
+				{
+					"include": "#reserved-identifier"
+				},
+				{
+					"include": "#boolean-constant"
+				},
+				{
+					"include": "#numeric-constant"
+				},
+				{
+					"include": "#variable-identifier"
 				}
 			]
 		},
 
-		"keyword": {
-			"patterns": [{
-				"name": "keyword.control.bolt",
-				"match": "\\b(return)\\b"
-			}]
-		},
 		"function-declaration": {
 			"name": "meta.function.bolt",
 			"begin": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((?:[a-zA-Z_$]\\w*)(?:,\\s*(?:[a-zA-Z_$]\\w*))*)?(\\))\\s*{",
@@ -69,13 +87,35 @@
 		},
 		"path-declaration": {
 			"name": "meta.path.bolt",
-			"begin": "(path\\s)?\\s*(/\\S*)+\\s*{",
+			"begin": "(path\\s)?\\s*(/\\S*)+\\s*(?:\\s+(is)\\s+(.+)\\s*)?{",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.type.path.bolt"
 				},
 				"2": {
-					"name": "string.quoted.single.bolt"
+					"name": "string.quoted.single.bolt",
+					"patterns": [{
+						"match": "(?<=/)({)([a-zA-Z_$]\\w*)(})",
+						"captures": {
+							"1": {
+								"name": "storage.parameter.path.begin.bolt"
+							},
+							"2": {
+								"name": "variable.parameter.path.bolt"
+							},
+							"3": {
+								"name": "storage.parameter.path.end.bolt"
+							}
+						}
+					}]
+				},
+				"3": {
+					"name": "keyword.control.bolt"
+				},
+				"4": {
+					"patterns": [{
+						"include": "#types"
+					}]
 				}
 			},
 			"end": "}",
@@ -87,6 +127,90 @@
 					"include": "#function-declaration"
 				}
 			]
+		},
+		"type-declaration": {
+			"name": "meta.type.bolt",
+			"begin": "(type)\\s+(\\S+)\\s*(?:\\s+(extends)\\s+(.+)\\s*)?{",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.type.bolt"
+				},
+				"2": {
+					"name": "entity.name.type.bolt"
+				},
+				"3": {
+					"name": "keyword.control.bolt"
+				},
+				"4": {
+					"patterns": [{
+						"include": "#types"
+					}]
+				}
+			},
+			"end": "}",
+			"patterns": [
+				{
+					"name": "meta.properties.bolt",
+					"match": "([a-zA-Z_$]\\w*):\\s*(.+)",
+					"captures": {
+						"1": {
+							"name": "variable.property.bolt"
+						},
+						"2": {
+							"patterns": [{
+								"include": "#types"
+							}]
+						}
+					}
+				},
+				{
+					"include": "#function-declaration"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "entity.name.type.bolt",
+					"match": "\\w+"
+				},
+				{
+					"match": "(\\w+)<((?:\\w+)(?:,\\s\\w+)*)>",
+					"captures": {
+						"1": {
+							"name": "entity.name.type.bolt"
+						},
+						"2": {
+							"patterns": [{
+								"include": "#types"
+							}]
+						}
+					}
+				}
+			]
+		},
+
+		"function-call": {
+			"name": "meta.function.bolt",
+			"match": "([a-zA-Z_$]\\w*)\\s*(\\()(.*)?(\\))",
+			"captures": {
+				"1": {
+					"name": "entity.name.function.bolt"
+				},
+				"2": {
+					"name": "punctuation.definition.parameters.begin.bolt"
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "#expr"
+						}
+					]
+				},
+				"4": {
+					"name": "punctuation.definition.parameters.end.bolt"
+				}
+			}
 		},
 		"string-double": {
 			"name": "string.quoted.double.bolt",
@@ -114,6 +238,26 @@
 			"name": "string.regexp.bolt",
 			"begin": "/",
 			"end": "/"
+		},
+		"return": {
+			"name": "keyword.control.bolt",
+			"match": "\\b(return)\\b"
+		},
+		"reserved-identifier": {
+			"name": "storage.reserved.bolt",
+			"match": "(root|auth|now|$location|data|newData|this)"
+		},
+		"variable-identifier": {
+			"name": "variable.parameter.bolt",
+			"match": "[a-zA-Z_$]\\w*"
+		},
+		"boolean-constant": {
+			"name": "constant.language.bolt",
+			"match": "(true|false)"
+		},
+		"numeric-constant": {
+			"name": "constant.numeric.bolt",
+			"match": "\\d"
 		}
 	},
 	"scopeName": "source.bolt"
