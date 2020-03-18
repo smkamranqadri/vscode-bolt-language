@@ -3,33 +3,41 @@
 	"name": "Bolt",
 	"patterns": [
 		{
-			"include": "#keyword"
-		},
-		{
-			"include": "#string-double"
-		},
-		{
-			"include": "#string-single"
-		},
-		{
-			"include": "#function"
-		},
-		{
-			"include": "#path"
+			"include": "#declarations"
 		}
 	],
 	"repository": {
-		
+		"declarations": {
+			"patterns": [
+				{
+					"include": "#path-declaration"
+				},
+				{
+					"include": "#function-declaration"
+				}
+			]
+		},
+		"expr": {
+			"patterns": [
+				{
+					"include": "#string-double"
+				},
+				{
+					"include": "#string-single"
+				}
+			]
+		},
+
 		"keyword": {
 			"patterns": [{
 				"name": "keyword.control.bolt",
 				"match": "\\b(return)\\b"
 			}]
 		},
-		"function": {
+		"function-declaration": {
 			"name": "meta.function.bolt",
-			"match": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((\\S+)(,\\s*(\\S+))*)?(\\))",
-			"captures": {
+			"begin": "(function\\s)?\\s*([a-zA-Z_$]\\w*)\\s*(\\()((\\S+)(,\\s*(\\S+))*)?(\\))\\s*\\{",
+			"beginCaptures": {
 				"1": {
 					"name": "storage.type.function.bolt"
 				},
@@ -45,19 +53,42 @@
 				"5": {
 					"name": "punctuation.definition.parameters.end.bolt"
 				}
-			}
+			},
+			"end": "\\}",
+			"patterns": [{
+				"include": "#function-body"
+			}]
 		},
-		"path": {
+		"function-body": {
+			"patterns": [
+				{
+					"include": "#function-declaration"
+				},
+				{
+					"include": "#expr"
+				}
+			]
+		},
+		"path-declaration": {
 			"name": "meta.path.bolt",
-			"match": "(path\\s)?\\s*(/\\S*)+\\s+",
-			"captures": {
+			"begin": "(path\\s)?\\s*(/\\S*)+\\s*\\{",
+			"beginCaptures": {
 				"1": {
 					"name": "storage.type.path.bolt"
 				},
 				"2": {
 					"name": "string.quoted.single.bolt"
 				}
-			}
+			},
+			"end": "\\}",
+			"patterns": [
+				{
+					"include": "#path-declaration"
+				},
+				{
+					"include": "#function-declaration"
+				}
+			]
 		},
 		"string-double": {
 			"name": "string.quoted.double.bolt",
