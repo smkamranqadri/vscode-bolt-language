@@ -1,6 +1,11 @@
 # vscode-bolt
 
-VSCode language support extension for [Bolt](https://github.com/FirebaseExtended/bolt)
+VS Code language support extension for [Bolt](https://github.com/FirebaseExtended/bolt)
+
+![Screenshot of code highlighting](/media/code.png)
+
+## Features
+  - Syntax highlighting for Bolt files
 
 ## Setup
 
