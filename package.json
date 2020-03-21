@@ -2,7 +2,7 @@
     "name": "vscode-bolt",
     "displayName": "vscode-bolt",
     "description": "Syntax highlighting for Firebase Bolt files",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "jasmaa",
     "icon": "images/flash.png",
     "homepage": "https://github.com/jasmaa/vscode-bolt/blob/master/README.md",

@@ -6,5 +6,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.2] - 2020-03-21
+### Changes
+- Minor update to README
+
 ## [0.0.1] - 2020-03-21
 - Initial release
