@@ -1,11 +1,13 @@
 # vscode-bolt
 
-VS Code language support extension for [Bolt](https://github.com/FirebaseExtended/bolt)
+[![Version](https://vsmarketplacebadge.apphb.com/version/jasmaa.vscode-bolt.svg)](https://marketplace.visualstudio.com/items?itemName=jasmaa.vscode-bolt) [![Installs](https://vsmarketplacebadge.apphb.com/installs/jasmaa.vscode-bolt.svg)](https://marketplace.visualstudio.com/items?itemName=jasmaa.vscode-bolt)
 
-![Screenshot of code highlighting](/media/code.png)
+VS Code language support extension for Firebase [Bolt](https://github.com/FirebaseExtended/bolt)
+
+![Screenshot of code highlighting](images/code.png)
 
 ## Features
-  - Syntax highlighting for Bolt files
+  - Syntax highlighting for Firebase Bolt files
 
 ## Setup
 
