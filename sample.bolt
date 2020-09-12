@@ -1,0 +1,30 @@
+path /users/{userid} {
+  // Inbox
+  /inbox/{msg} is Message {
+    read() { isCurrentUser(userid) }
+    write() { isNew(this) || isCurrentUser(userid) }
+  }
+
+  // Outbox
+  /outbox/{msg} is Message {
+    read() { isCurrentUser(userid) }
+    write() { isCurrentUser(userid) }
+  }
+}
+
+path /products is Product[];
+
+type Product {
+  validate() { this.id == key() }
+
+  id: String,
+  name: String
+}
+
+function isUser(uid) {
+  return auth != null && auth.uid == uid;
+}
+
+function isUser(uid) { auth != null && auth.uid == uid }
+
+isUser(uid) { auth != null && auth.uid == uid }
