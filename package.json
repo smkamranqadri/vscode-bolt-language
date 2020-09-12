@@ -1,50 +1,50 @@
 {
-	"name": "vscode-bolt-language",
-	"displayName": "Bolt",
-	"description": "Firebase security rules language Bolt support for vscode",
-	"icon": "images/flash.png",
-	"version": "0.0.4",
-	"publisher": "smkamranqadri",
-	"homepage": "https://github.com/smkamranqadri/vscode-bolt-language/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/smkamranqadri/vscode-bolt-language.git"
-	},
-	"galleryBanner": {
-		"color": "#333",
-		"theme": "dark"
-	},
-	"engines": {
-		"vscode": "^1.0.0"
-	},
-	"categories": [
-		"Languages"
-	],
-	"contributes": {
-		"languages": [
-			{
-				"id": "bolt",
-				"aliases": [
-					"Bolt",
-					"bolt"
-				],
-				"extensions": [
-					".bolt"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "bolt",
-				"scopeName": "source.bolt",
-				"path": "./syntaxes/bolt.tmLanguage.json"
-			}
-		]
-	},
-	"__metadata": {
-		"id": "7cbb92c3-e47c-4809-bdfb-a5f7217d8b88",
-		"publisherDisplayName": "Muhammad Kamran",
-		"publisherId": "f7751943-f958-40c4-9f15-a69e113724dd"
-	}
+  "name": "vscode-bolt-language",
+  "displayName": "Bolt",
+  "description": "Firebase security rules language Bolt support for vscode",
+  "icon": "images/flash.png",
+  "version": "1.0.0",
+  "publisher": "smkamranqadri",
+  "homepage": "https://github.com/smkamranqadri/vscode-bolt-language/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smkamranqadri/vscode-bolt-language.git"
+  },
+  "galleryBanner": {
+    "color": "#333",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "bolt",
+        "aliases": [
+          "Bolt",
+          "bolt"
+        ],
+        "extensions": [
+          ".bolt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bolt",
+        "scopeName": "source.bolt",
+        "path": "./syntaxes/bolt.tmLanguage.json"
+      }
+    ]
+  },
+  "__metadata": {
+    "id": "7cbb92c3-e47c-4809-bdfb-a5f7217d8b88",
+    "publisherDisplayName": "Muhammad Kamran",
+    "publisherId": "f7751943-f958-40c4-9f15-a69e113724dd"
+  }
 }
