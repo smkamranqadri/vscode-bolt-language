@@ -30,8 +30,11 @@
 <br />
 
 ## Syntax in Action
-
-![Bolt highlighting](images/bolt-syntax.png)
+<div align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=smkamranqadri.vscode-bolt-language">
+    <img src="https://raw.githubusercontent.com/smkamranqadri/vscode-bolt-language/master/images/bolt-syntax.png" alt="Bolt highlighting">
+  </a>
+</div>
 
 ### Contributors
 
