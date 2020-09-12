@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/smkamranqadri/vscode-bolt-language">
-    <img src="images/logo.png" alt="Logo">
+    <img src="https://raw.githubusercontent.com/smkamranqadri/vscode-bolt-language/master/images/logo.png" alt="Logo">
   </a>
 </div>
 <h3 align="center">Syntax highlighting of <a href="https://firebase.com/docs/security/bolt/quickstart.html">Bolt compiler</a> for Visual Studio Code.</h3>
